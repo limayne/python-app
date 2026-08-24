@@ -1,0 +1,12 @@
+steps:
+  - name: 'python'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "executing python script"
+        python hello.py
+        echo "python script executed"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
