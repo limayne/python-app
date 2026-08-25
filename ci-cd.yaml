@@ -1,0 +1,16 @@
+steps:
+  # Build the Docker image from the Dockerfile in this directory
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'europe-north2-docker.pkg.dev/warm-classifier-376900/python-repo/app:v1', '.']
+
+  # Push the image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'europe-north2-docker.pkg.dev/warm-classifier-376900/python-repo/app:v1']
+
+# Register the image so it is tracked as the build output
+images:
+  - 'europe-north2-docker.pkg.dev/warm-classifier-376900/python-repo/app:v1'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
